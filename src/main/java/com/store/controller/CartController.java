@@ -124,14 +124,5 @@ public class CartController {
         return "redirect:/account";
     }
 
-    @ModelAttribute("cartCount")
-    public int getCartCount() {
-        User user = getAuthenticatedUser();
-        if (user != null) {
-            return cartService.getCartItems(user).stream()
-                    .mapToInt(CartItem::getQuantity)
-                    .sum();
-        }
-        return 0;
-    }
+
 }
