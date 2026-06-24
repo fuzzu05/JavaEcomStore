@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>${title != null ? title : 'Online Store'}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css?v=1.0.4" />
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css?v=1.0.5" />
     <!-- Apply theme before rendering body to avoid flash of dark/light theme -->
     <script>
         (function() {
@@ -46,8 +46,6 @@
                     </c:if>
                 </a>
                 
-                <a href="${pageContext.request.contextPath}/account" class="nav-item ${activePage == 'account' ? 'active' : ''}">My Account</a>
-
                 <!-- Theme Toggle Button -->
                 <button id="themeToggle" class="theme-toggle-btn" title="Toggle Theme" type="button">
                     <!-- Sun SVG (Dark Mode active) -->
@@ -70,10 +68,32 @@
 
                 <c:choose>
                     <c:when test="${isLoggedIn}">
-                        <a href="${pageContext.request.contextPath}/account" style="color: var(--text-secondary); font-size: 0.9rem; text-decoration: none; transition: color 0.2s ease;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Hi, ${username}!</a>
-                        <form action="${pageContext.request.contextPath}/logout" method="post" style="display:inline; margin-left: 0.5rem;">
-                            <button type="submit" class="nav-item">Logout</button>
-                        </form>
+                        <div class="user-dropdown">
+                            <button class="user-dropdown-btn" type="button">
+                                Hi, ${username}!
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="user-dropdown-content">
+                                <a href="${pageContext.request.contextPath}/account">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px; vertical-align: middle;">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                    My Profile
+                                </a>
+                                <form action="${pageContext.request.contextPath}/logout" method="post" id="headerLogoutForm" style="display:none;"></form>
+                                <a href="#" onclick="document.getElementById('headerLogoutForm').submit(); return false;" class="logout-link">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px; vertical-align: middle;">
+                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                        <polyline points="16 17 21 12 16 7"/>
+                                        <line x1="21" y1="12" x2="9" y2="12"/>
+                                    </svg>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
                     </c:when>
                     <c:otherwise>
                         <a href="${pageContext.request.contextPath}/login" class="btn-auth-outline">Log In</a>

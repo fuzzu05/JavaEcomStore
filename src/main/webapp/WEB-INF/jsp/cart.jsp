@@ -49,11 +49,6 @@
                                     <input type="hidden" name="cartItemId" value="${item.id}" />
                                     <button type="submit" class="btn-item-action">Remove</button>
                                 </form>
-                                
-                                <form action="${pageContext.request.contextPath}/cart/save-for-later" method="post" style="display:inline;">
-                                    <input type="hidden" name="cartItemId" value="${item.id}" />
-                                    <button type="submit" class="btn-item-action">Save for Later</button>
-                                </form>
                             </div>
                         </div>
                     </c:forEach>

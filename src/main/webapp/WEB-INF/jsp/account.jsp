@@ -94,6 +94,20 @@
         </c:choose>
     </div>
 
+    <!-- Logout Button on Account Page -->
+    <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+        <form action="${pageContext.request.contextPath}/logout" method="post">
+            <button type="submit" class="btn-large btn-danger" style="background: rgba(239, 68, 68, 0.08); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.25); box-shadow: 0 0 10px rgba(239, 68, 68, 0.05); transition: all 0.2s ease; border-radius: 8px; display: inline-flex; align-items: center; cursor: pointer;" onmouseover="this.style.background='rgba(239, 68, 68, 0.15)'; this.style.borderColor='rgba(239, 68, 68, 0.45)';" onmouseout="this.style.background='rgba(239, 68, 68, 0.08)'; this.style.borderColor='rgba(239, 68, 68, 0.25)';">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px; vertical-align: middle;">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                    <polyline points="16 17 21 12 16 7"/>
+                    <line x1="21" y1="12" x2="9" y2="12"/>
+                </svg>
+                Log Out
+            </button>
+        </form>
+    </div>
+
 </div>
 
 <%@ include file="footer.jsp" %>
