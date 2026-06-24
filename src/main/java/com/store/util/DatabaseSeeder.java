@@ -18,34 +18,34 @@ public class DatabaseSeeder implements CommandLineRunner {
     public void run(String... args) {
         if (productRepository.count() == 0) {
             Product p1 = Product.builder()
-                    .name("Product 1")
-                    .description("Short description of product 1 that highlights its key features and benefits. Experience maximum utility and premium design crafted for your everyday needs.")
+                    .name("SoundWave Smart Speaker")
+                    .description("Experience rich, immersive audio with our premium smart speaker. Features voice assistant support, long-lasting battery, and beautiful dynamic ambient lighting.")
                     .price(29.99)
-                    .imageUrl("electronics")
+                    .imageUrl("/images/speaker.png")
                     .category("Electronics")
                     .build();
 
             Product p2 = Product.builder()
-                    .name("Product 2")
-                    .description("Short description of product 2 that highlights its key features and benefits. Crafted from ultra-soft cotton blend. Perfect for breezy evenings.")
+                    .name("Pleated Linen Midi Skirt")
+                    .description("Crafted from breathable premium linen blend. Perfect for bright sunny days, casual outings, or elegant summer evenings.")
                     .price(19.99)
-                    .imageUrl("clothing")
+                    .imageUrl("/images/skirt.png")
                     .category("Clothing")
                     .build();
 
             Product p3 = Product.builder()
-                    .name("Product 3")
-                    .description("Short description of product 3 that highlights its key features and benefits. Detailed description of the product, including its features, specifications, and any other relevant information that can help the customer make an informed decision.")
+                    .name("AromaCraft Drip Coffee Maker")
+                    .description("Brew the perfect cup of coffee every morning. Modern stainless steel design, customizable strength control, and auto-shutoff safety features.")
                     .price(49.99)
-                    .imageUrl("home")
+                    .imageUrl("/images/coffee.png")
                     .category("Home & Kitchen")
                     .build();
 
             Product p4 = Product.builder()
-                    .name("Product 4")
-                    .description("Short description of product 4 that highlights its key features and benefits. Double-walled vacuum insulated stainless steel water bottle.")
+                    .name("HydroPeak Insulated Water Bottle")
+                    .description("Keep your drinks ice-cold for 24 hours or piping hot for 12. Double-walled vacuum insulated stainless steel with a leak-proof lid.")
                     .price(14.99)
-                    .imageUrl("sports")
+                    .imageUrl("/images/bottle.png")
                     .category("Sports")
                     .build();
 

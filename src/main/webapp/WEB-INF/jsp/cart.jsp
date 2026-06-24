@@ -24,10 +24,17 @@
                     <c:forEach var="item" items="${cartItems}">
                         <div class="cart-item-row">
                             <div class="cart-item-info">
-                                <div class="cart-item-img">
-                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <rect x="2" y="3" width="20" height="14" rx="2" />
-                                    </svg>
+                                <div class="cart-item-img ${not empty item.product.imageUrl ? 'has-img' : ''}">
+                                    <c:choose>
+                                        <c:when test="${not empty item.product.imageUrl}">
+                                            <img src="${pageContext.request.contextPath}${item.product.imageUrl}" alt="${item.product.name}" />
+                                        </c:when>
+                                        <c:otherwise>
+                                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                            </svg>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                                 <div class="cart-item-meta">
                                     <a href="${pageContext.request.contextPath}/product?id=${item.product.id}" class="cart-item-name">

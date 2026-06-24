@@ -13,14 +13,23 @@
         <div class="detail-container">
             <!-- Top Grid: Image | Product Info -->
             <div class="detail-main-grid">
-                <div class="detail-img-placeholder">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="2" y="3" width="20" height="14" rx="2" />
-                        <line x1="8" y1="21" x2="16" y2="21" />
-                        <line x1="12" y1="17" x2="12" y2="21" />
-                    </svg>
-                    <span style="font-size:1.1rem; font-weight: 500;">${product.name} Image</span>
-                </div>
+                <c:choose>
+                    <c:when test="${not empty product.imageUrl}">
+                        <div class="detail-img-container">
+                            <img src="${pageContext.request.contextPath}${product.imageUrl}" alt="${product.name}" />
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="detail-img-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg>
+                            <span style="font-size:1.1rem; font-weight: 500;">${product.name} Image</span>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
 
                 <div class="detail-info">
                     <span class="detail-category">${product.category}</span>

@@ -63,10 +63,17 @@
                                 <c:forEach var="item" items="${order.items}">
                                     <div class="order-row">
                                         <div class="order-info">
-                                            <div class="order-img-mini">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                                    <rect x="2" y="3" width="20" height="14" rx="2" />
-                                                </svg>
+                                            <div class="order-img-mini ${not empty item.product.imageUrl ? 'has-img' : ''}">
+                                                <c:choose>
+                                                    <c:when test="${not empty item.product.imageUrl}">
+                                                        <img src="${pageContext.request.contextPath}${item.product.imageUrl}" alt="${item.product.name}" />
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                                                        </svg>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </div>
                                             <div class="order-meta">
                                                 <div class="order-meta-text">

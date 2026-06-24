@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>${title != null ? title : 'Online Store'}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css?v=1.0.3" />
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css?v=1.0.4" />
     <!-- Apply theme before rendering body to avoid flash of dark/light theme -->
     <script>
         (function() {
